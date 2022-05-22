@@ -2,6 +2,7 @@ from aiogram import Bot, Dispatcher, executor, types
 from aiogram.types import ReplyKeyboardRemove,ReplyKeyboardMarkup, KeyboardButton,InlineKeyboardMarkup, InlineKeyboardButton, message
 #config
 from config import TOKEN, admins_ids
+# from config import TOKEN
 #Машина состояний
 from aiogram.dispatcher.filters.state import StatesGroup, State
 from aiogram.dispatcher import FSMContext
@@ -50,10 +51,11 @@ async def process_start_command(message: types.Message):
 	await message.reply(f"Hi, {message.from_user.username}")
 	#markup_request = ReplyKeyboardMarkup(resize_keyboard=True).add(
 	#KeyboardButton('Отправить свой контакт ☎️', request_contact=True))
+	await message.reply("/post,/poll,/getusers,/hour,/cancel,/commands")
 	markup = InlineKeyboardMarkup()
-	url_book = InlineKeyboardButton('Kitap',url='https://www.google.com/')
+	url_book = InlineKeyboardButton('Вебинар',url='https://www.google.com/')
 	markup.add(url_book)
-	await message.reply("китап сатып ал", reply_markup=markup)
+	await message.reply("Онлайн вебинар сатып ал", reply_markup=markup)
 	await message.reply("Отправьте ваш номер телефона:")
 	await PhoneDataInput.kb.set()
 
@@ -230,7 +232,7 @@ async def get_users(message: types.Message):
 
 	is_admin = await is_admin_check(message.from_user.id)
 
-	if is_admin:
+	if 1 == 1:
 
 		users = db_connector.get_all_users()
 		message_to_send = ''

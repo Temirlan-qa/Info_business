@@ -1,2 +1,2 @@
-TOKEN = 'token'
-admins_ids = #admin TOKEN
+TOKEN = '5388242633:AAHFlfpe5J6cbG9jBqJch11zNbAROWFuKIQ'
+admins_ids = 730739648
